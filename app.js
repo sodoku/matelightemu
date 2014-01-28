@@ -18,9 +18,9 @@ server.on('message', function (message, remote) {
     var picbuffer = message.slice(4);
     cursor.write('\033[2J');
     for (var i = 0; i < picbuffer.length; i+=3){
-      if (i % COLS == 0) cursor.write('\n');
+      if (i % COLS == 0) cursor.reset().write('\n');
       var pixelbuffer = message.slice(i, i+3);
-      cursor.rgb(pixelbuffer[0],pixelbuffer[1],pixelbuffer[2]).write("X");
+      cursor.rgb(0,0,0).bg.rgb(pixelbuffer[0],pixelbuffer[1],pixelbuffer[2]).write("X");
     }
     cursor.reset();
 
