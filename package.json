@@ -1,0 +1,15 @@
+{
+  "name": "matelightemu",
+  "version": "0.0.0",
+  "description": "emulator for matelight",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sodoku",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "ansi": "~0.2.1"
+  }
+}
