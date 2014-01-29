@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Matelight Emulator</title>
+  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      element = document.getElementById("canvas1");
+      c = element.getContext("2d");
+
+      // read the width and height of the canvas
+      width = element.width;
+      height = element.height;
+
+      // create a new pixel array
+      imageData = c.createImageData(width, height);
+
+      var socket = io.connect('http://localhost:8080');
+      socket.on('pic', function (data) {
+        console.log('pic', data);
+        for (var i=0; i<data.length; i++){
+          imageData.data[i] = data[i];
+        }
+        c.putImageData(imageData, 0, 0); // at coords 0,0
+
+      });
+    });
+  </script>
+</head>
+<body>
+  <canvas style="height:%;width:100%" id="canvas1" width="40", height="16">
+    EMULATOR CANVAS
+  </canvas>
+</body>
+</html>
