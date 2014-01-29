@@ -1,7 +1,7 @@
 matelightemu
 ============
 
-emulator for matelight
+Emulator for the [Matelight](https://github.com/jaseg/matelight) CRAP protocol
 
 ![Terminal](/screenshots/matelightemu_terminal.png "Terminal")
 
